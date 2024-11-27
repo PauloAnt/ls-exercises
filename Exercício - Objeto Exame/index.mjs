@@ -16,7 +16,7 @@ exam.add(e4);
 
 console.log(`Provas:`, exam.exams);
 console.log(`Média: ${exam.avg()}`); 
-console.log(`Min (<=4): ${exam.min(4).join(" | ")}`); 
-console.log(`Max (>=5): ${exam.max(5).join(" | ")}`); 
+console.log(`Min: ${exam.min(2).join(" | ")}`); 
+console.log(`Max: ${exam.max(2).join(" | ")}`); 
 console.log(`LT (<5): ${exam.lt(5).join(" | ")}`);
 console.log(`GT (>3): ${exam.gt(3).join(" | ")}`);

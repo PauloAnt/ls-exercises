@@ -32,18 +32,20 @@ export default class Exam {
         return total / pointsArray.length;
     }
 
-    min(count) {
+    min(count = 1) {
         if (!this.exams.length) return null;
 
         const pointsArray = this.exams.map((exam) => this.#calculatePoints(exam));
-        return pointsArray.filter((points) => points <= count); 
+        const pointsArrayOrder = pointsArray.sort();
+        return pointsArrayOrder.slice(0, count); 
     }
 
-    max(count) {
+    max(count = 1) {
         if (!this.exams.length) return null;
 
         const pointsArray = this.exams.map((exam) => this.#calculatePoints(exam));
-        return pointsArray.filter((points) => points >= count); 
+        const pointsArrayOrder = pointsArray.sort();
+        return pointsArrayOrder.slice(pointsArrayOrder.length - count, pointsArrayOrder.length); 
     }
 
     lt(limit) {
