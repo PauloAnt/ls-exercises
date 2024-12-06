@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        h1{
+            padding: 50px;
+            text-align: center;
+        }
+        #div-flags{
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: auto;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 50px;
+        }
+        .flag{
+            padding: 10px;
+        }
+        .flag p{
+            margin-top: 15px;
+            color: rgb(56, 54, 54);
+        }
+    </style>
+</head>
+<body>
+    <h1>Country Flags</h1>
+    <div id="div-flags">
+
+    </div>
+</body>
+    <script type="module">
+        import { countries } from "./js/countries.js";
+
+        const flags = [];
+
+        const divFlags = document.getElementById("div-flags");
+
+        Object.keys(countries).forEach(key => {
+            let flag = `<div class="flag">
+                            <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/main/png100px/${key.toLowerCase()}.png" width="100px">
+                            <p class="flag-name">${countries[key]}</p>
+                        </div>`;
+            flags.push(flag);
+        });
+
+        flags.forEach(value => {
+            divFlags.insertAdjacentHTML("beforeend", value);
+        })
+    </script>
+</html>
